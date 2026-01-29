@@ -112,6 +112,7 @@ if run_button:
     payload = encrypted["iv"] + encrypted["ciphertext"]
 
     st.code(f"Original Message:\n{message}")
+    st.code(f"Encrypted Message:\n{encrypted['ciphertext'].hex()}")
     st.info(f"Encrypted payload size: {len(payload)} bytes")
 
     # ---------------- Steganography ----------------
@@ -144,8 +145,8 @@ if run_button:
     decrypted = decrypt_message(ciphertext, iv, final_key)
 
     st.subheader("📨 Communication Result")
-    st.success("Recovered Message:")
-    st.code(decrypted)
+    st.code("Recieved Message:\n" + encrypted['ciphertext'].hex())
+    st.success("Recovered Message\n" + decrypted)
 
     # ---------------- Metrics ----------------
     st.subheader("📊 Steganography Quality Metrics")
