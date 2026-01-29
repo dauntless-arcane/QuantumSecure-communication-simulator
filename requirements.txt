@@ -1,0 +1,17 @@
+# Core Dependencies
+streamlit>=1.31.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Image Processing
+Pillow>=10.0.0
+opencv-python>=4.8.0
+
+# Cryptography
+pycryptodome>=3.19.0
+
+# Image Quality Metrics
+scikit-image>=0.22.0
+
+# Optional but recommended
+matplotlib>=3.7.0
