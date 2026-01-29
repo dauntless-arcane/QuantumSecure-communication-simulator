@@ -79,16 +79,16 @@ if run_button:
     rejected = [c for c in result["channels"] if not c["accepted"]]
 
     log(f"\nAccepted channels: {len(accepted)}")
-    log(f"Rejected channels: {len(rejected)}")
+    log(f"\tRejected channels: {len(rejected)}")
 
     for ch in result["channels"]:
         if ch["accepted"]:
-            log(f"🟢 Channel {ch['channel_id']} accepted | QBER = {round(float(ch['qber']),4)}")
+            log(f"\n🟢 Channel {ch['channel_id']} accepted | QBER = {round(float(ch['qber']),4)}")
         else:
-            log(f"🔴 Channel {ch['channel_id']} rejected | QBER = {round(float(ch['qber']),4)}")
+            log(f"\n🔴 Channel {ch['channel_id']} rejected | QBER = {round(float(ch['qber']),4)}")
 
     if not result["success"]:
-        st.error("❌ All channels compromised. Secure communication aborted.")
+        st.error("\n❌ All channels compromised. Secure communication aborted.")
         log("\n❌ SYSTEM ABORTED — No secure quantum channels available.")
         st.stop()
 
@@ -146,7 +146,7 @@ if run_button:
 
     st.subheader("📨 Communication Result")
     st.code("Recieved Message:\n" + encrypted['ciphertext'].hex())
-    st.success("Recovered Message\n" + decrypted)
+    st.success("Recovered Message: \n" + decrypted)
 
     # ---------------- Metrics ----------------
     st.subheader("📊 Steganography Quality Metrics")
